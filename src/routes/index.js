@@ -7,7 +7,11 @@
 import React, { Component } from "react";
 
 export default class extends Component {
+  handleToTodoList() {
+    this.$router.push("/TodoList");
+  }
+
   render() {
-    return <a href="/TodoList">去todoList页面</a>;
+    return <button on-click="handleToTodoList">去todoList页面</button>;
   }
 }
