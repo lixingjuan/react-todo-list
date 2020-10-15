@@ -1,17 +1,13 @@
-/*
- * @version: 0.0.1
- * @Author: lixingjuan <xingjuan.li@hand-china.com>
- * @Date: 2020-02-06 16:41:15
- * @copyright: Copyright (c) 2019, Hand
- */
-import React, { Component } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
-export default class extends Component {
-  handleToTodoList() {
-    this.$router.push("/TodoList");
-  }
+export default function Counter() {
+  const initialCount = 0;
+  const [count, setCount] = useState(initialCount);
 
-  render() {
-    return <button on-click="handleToTodoList">去todoList页面</button>;
-  }
+  return (
+    <>
+      <div>头</div>
+      <div>内容组件</div>
+    </>
+  );
 }

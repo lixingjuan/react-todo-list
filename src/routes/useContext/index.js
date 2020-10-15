@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import ContextContainer from "./ContextContainer";
 import DemoUseContext from "./DemoUseContext";
 import DemoNotUseContext from "./DemoNotUseContext";
 import Toolbar from "./Toolbar";
 import { NoteList } from "../../components";
+import { AuthorizedContext } from "src/hooks";
 
 export default function Container() {
+  const { state } = useContext(AuthorizedContext);
+
+  console.log(useContext(AuthorizedContext));
+
   const noteArr = [
     "context的value的改变会触发被其包裹的所有组件的重新渲染，不管子组件是否使用该value",
     `将context.provider单独写为一个组件，对context.provider（即ContextContainer）,他的值是来自props, 
