@@ -5,12 +5,13 @@ import DemoUseContext from "./DemoUseContext";
 import DemoNotUseContext from "./DemoNotUseContext";
 import Toolbar from "./Toolbar";
 import { NoteList } from "../../components";
-import { AuthorizedContext } from "src/hooks";
+import { AuthorizedContext } from "@/hooks";
 
-export default function Container() {
+export default function Container(props) {
   const { state } = useContext(AuthorizedContext);
 
   console.log(useContext(AuthorizedContext));
+  console.log({ props });
 
   const noteArr = [
     "context的value的改变会触发被其包裹的所有组件的重新渲染，不管子组件是否使用该value",

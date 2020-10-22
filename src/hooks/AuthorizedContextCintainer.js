@@ -9,7 +9,6 @@ import {
 export default function ContextContainer(props) {
   const [state, dispatch] = useReducer(ProviderReducer, initPermissionList);
 
-  console.log(state);
   return (
     <AuthorizedContext.Provider value={{ state, dispatch }}>
       {props.children}
