@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect, useMemo } from "react";
+import React, { useState, useCallback } from "react";
 import { Table } from "antd";
 import { Resizable } from "react-resizable";
 
@@ -74,7 +74,6 @@ const initData = [
 
 function Demo() {
   const [columns, setColumns] = useState(initColumns);
-  const [curInfo, setCurInfo] = useState({ index: 0, width: 100 });
 
   const components = {
     header: {
@@ -82,18 +81,17 @@ function Demo() {
     }
   };
 
-  console.log("页面重新渲染");
-
-  const handleResize = useMemo(
-    () => index => (e, { size }) => {
-      setColumns(perColumns => {
-        const tempColumns = [...perColumns];
-        tempColumns[index] = {
-          ...tempColumns[index],
-          width: size.width
-        };
-        return tempColumns;
-      });
+  const handleResize = useCallback(
+    index => (e, { size }) => {
+      console.log(index);
+      console.log(e);
+      console.log(size);
+      const tempColumns = [...columns];
+      tempColumns[index] = {
+        ...tempColumns[index],
+        width: size.width
+      };
+      setColumns(tempColumns);
     },
     []
   );
@@ -102,14 +100,16 @@ function Demo() {
     ...col,
     onHeaderCell: column => ({
       width: column.width,
-      // onResize: index => (e, { size }) => {
-      //   setCurInfo({
-      //     index,
-      //     width: size.width
-      //   });
-      //   console.log(111);
-      // }
-      onResize: handleResize(index)
+      onResize: index => (e, { size }) => {
+        // const tempColumns = [...columns];
+        // tempColumns[index] = {
+        //   ...tempColumns[index],
+        //   width: size.width
+        // };
+        return { width: size.width };
+        // setColumns(tempColumns);
+      }
+      // onResize: handleResize(index)
     })
   }));
 

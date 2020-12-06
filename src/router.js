@@ -12,8 +12,9 @@ import useState from "./routes/useState";
 import useEffect from "./routes/useEffect";
 import useContext from "./routes/useContext";
 import useReducer from "./routes/useReducer";
-import Modal from "./routes/Modal/index.tsx";
 import Del from "./routes/Del/index.tsx";
+import Modal from "./routes/Modal/index.tsx";
+import Menu from "./routes/Menu";
 
 export default function Routes() {
   return (
@@ -26,6 +27,7 @@ export default function Routes() {
         <Route path="/useReducer" component={useReducer} />
         <Route path="/Del" component={Del} />
         <Route path="/Modal" component={Modal} />
+        <Route path="/Menu" component={Menu} />
       </Switch>
     </Router>
   );

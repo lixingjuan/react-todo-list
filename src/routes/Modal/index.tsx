@@ -10,7 +10,9 @@ const tailLayout = {
   wrapperCol: { offset: 8, span: 16 }
 };
 
-function info() {
+function Info() {
+  const [type, setType] = useState("typeInit");
+
   const onFinish = values => {
     console.log("Success:", values);
   };
@@ -20,7 +22,6 @@ function info() {
   };
 
   return Modal.info({
-    title: "This is a notification message",
     content: (
       <Form
         {...layout}
@@ -93,7 +94,7 @@ export default function Counter() {
 
   return (
     <Space>
-      <Button onClick={info}>Info</Button>
+      <Button onClick={() => <Info />}>Info</Button>
       <Button onClick={success}>Success</Button>
       <Button onClick={error}>Error</Button>
       <Button onClick={warning}>Warning</Button>

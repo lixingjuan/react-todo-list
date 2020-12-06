@@ -8,10 +8,9 @@ import {
 import zh_CN from "antd/lib/locale-provider/zh_CN";
 
 import "./App.css";
+import "./App.less";
 import Routes from "./router";
 import AuthorizedContextCintainer from "./hooks/AuthorizedContextCintainer";
-
-import "./App.css";
 
 const { SubMenu } = Menu;
 
