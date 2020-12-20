@@ -15,6 +15,7 @@ import useReducer from "./routes/useReducer";
 import Del from "./routes/Del/index.tsx";
 import Modal from "./routes/Modal/index.tsx";
 import Menu from "./routes/Menu";
+import Tab from "./routes/Tab/index";
 
 export default function Routes() {
   return (
@@ -28,6 +29,7 @@ export default function Routes() {
         <Route path="/Del" component={Del} />
         <Route path="/Modal" component={Modal} />
         <Route path="/Menu" component={Menu} />
+        <Route path="/Tab" component={Tab} />
       </Switch>
     </Router>
   );
